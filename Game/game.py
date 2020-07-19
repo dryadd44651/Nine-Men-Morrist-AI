@@ -55,7 +55,7 @@ if __name__ == "__main__":
         game.show(board)
     
 
-    board = game.readBoard("board3.txt")
+    # board = game.readBoard("board3.txt") #test only
     print("mid game")
     while abs(score)!=10000:
         print("AI turn")
