@@ -37,21 +37,22 @@ if __name__ == "__main__":
     depth = int(input())
     board = ['x' for _ in range(23)]
     score = 0
-    # for _ in range(9):
-    #     print("AI turn")
-    #     res = ABOpening.MaxMin(game.getInverse(board),depth,-float('inf'),float('inf'))
-    #     score = res[0]
-    #     board = res[-1]
-    #     game.show(board)
-    #     print("Your turn",score)
-    #     loc = int(input())
-    #     board[loc] = 'B'
-    #     game.show(board)
-    #     if game.closeMill(loc,board,turn='B'):
-    #         print("Pick the location to remove")
-    #         loc = int(input())
-    #         board[loc] = 'x'
-    #     game.show(board)
+    print("opening game")
+    for _ in range(9):
+        print("AI turn")
+        res = ABOpening.MaxMin(game.getInverse(board),depth,-float('inf'),float('inf'))
+        score = res[0]
+        board = res[-1]
+        game.show(board)
+        print("Your turn",score)
+        loc = int(input())
+        board[loc] = 'B'
+        game.show(board)
+        if game.closeMill(loc,board,turn='B'):
+            print("Pick the location to remove")
+            loc = int(input())
+            board[loc] = 'x'
+        game.show(board)
     
 
     board = game.readBoard("board3.txt")
