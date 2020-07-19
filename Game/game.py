@@ -39,9 +39,9 @@ if __name__ == "__main__":
     score = 0
     print("opening game")
     for _ in range(9):
-        print("AI turn")
+        print("AI turn",score)
         res = ABOpening.MaxMin(game.getInverse(board),depth,-float('inf'),float('inf'))
-        score = res[0]
+        score = ABOpening.static(board)
         board = res[-1]
         game.show(board)
         print("Your turn",score)
@@ -52,15 +52,16 @@ if __name__ == "__main__":
             print("Pick the location to remove")
             loc = int(input())
             board[loc] = 'x'
+        score = ABOpening.static(board)
         game.show(board)
     
 
-    # board = game.readBoard("board3.txt") #test only
+    #board = game.readBoard("board3.txt")
     print("mid game")
     while abs(score)!=10000:
-        print("AI turn")
+        print("AI turn",score)
         res = ABGame.MidMaxMin(game.getInverse(board),depth,-float('inf'),float('inf'))
-        score = res[0]
+        score = ABGame.static(board)
         board = res[-1]
         game.show(board)
         print("Your turn",score)
@@ -78,6 +79,7 @@ if __name__ == "__main__":
             print("Pick the location to remove")
             loc = int(input())
             board[loc] = 'x'
+        score = ABGame.static(board)
         game.show(board)
         
 
